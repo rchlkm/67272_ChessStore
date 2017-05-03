@@ -1,6 +1,9 @@
 <div class="contain-to-grid">
   <nav class="top-bar" data-topbar role="navigation"> 
     <section class="top-bar-section">
+        <!--  link_to image_tag(), home_path -->
+     
+
       <ul class="left">
         <!-- link to home -->
         <li><%= link_to "Home", home_path %></li>
@@ -25,6 +28,21 @@
           <%= link_to "Prices", item_prices_path %>
         </li>
       </ul>
+
+      <div id="container">
+        <div id="login">
+          <% if logged_in? %>
+            <%= link_to 'Sign Out', logout_path %>
+            <br>[<%= current_user.proper_name %>:<%= current_user.role %>]
+          <% else %>
+            <%= link_to 'Sign In', login_path %>
+          <% end %>
+        </div>
+        <% flash.each do |name, msg| %>
+          <%= content_tag :div, msg, :id => "flash_#{name}" %>
+        <% end %>
+        <%= yield %>
+      </div>
 
     </section>
   </nav>
