@@ -1,13 +1,26 @@
 class UsersController < ApplicationController
-	def new
+  before_action :set_user, only: [:show, :edit, :update, :destroy]
+  # authorize_resource
+
+  def index
+    @users = User.alphabetical.paginate(:page => params[:page]).per_page(7)
+  end
+
+  def show
+    @user_assignments = @user.assignments.active.by_project
+    @created_tasks = Task.for_creator(@user.id).by_name
+    @completed_tasks = Task.for_completer(@user.id).by_name
+  end
+
+  def new
     @user = User.new
-	end
+  end
 
-	def edit
-	end
+  def edit
+  end
 
-	def create
-		@user = User.new(user_params)
+  def create
+    @user = User.new(user_params)
     if @user.save
       session[:user_id] = @user.id
       redirect_to home_path, notice: "Thank you for signing up!"
@@ -17,14 +30,20 @@ class UsersController < ApplicationController
     end
   end
 
-	def update
-		if @user.update_attributes(user_params)
+  def update
+    if @user.update_attributes(user_params)
       flash[:notice] = "#{@user.proper_name} is updated."
       redirect_to @user
     else
       render :action => 'edit'
     end
-	end
+  end
+
+  def destroy
+    @user.destroy
+    flash[:notice] = "Successfully removed #{@user.proper_name} from A&M."
+    redirect_to users_url
+  end
 
   private
     def set_user
@@ -32,6 +51,10 @@ class UsersController < ApplicationController
     end
 
     def user_params
-      params.require(:user).permit(:first_name, :last_name, :email, :band_id, :password, :password_confirmation, :role, :active)        
+      if current_user && current_user.role?(:admin)
+        params.require(:user).permit(:first_name, :last_name, :email, :password, :password_confirmation, :role, :active)  
+      else
+        params.require(:user).permit(:first_name, :last_name, :email, :password, :password_confirmation, :active)
+      end
     end
 end

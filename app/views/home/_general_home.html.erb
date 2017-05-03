@@ -1,10 +1,28 @@
-<h2>Welcome to the Chess Warehouse</h2>
+	<h2>Welcome to the Chess Warehouse</h2>
 <br />
 <div class="row">
 	<div class="small-7 columns">
 		<p>
 			Here are some of the great chess equipment we have today...
 		</p>
+
+		<table class="table table-striped">
+		    <thead>
+		      <tr>
+		        <th width="250">Name</th>
+		        <th width="125">Inventory</th>
+		        <th width="125">Reorder Level</th>
+		      </tr>
+		    </thead>
+		    <tbody>
+		      <% @items.each do |item| %>
+		        <tr>
+		          <td><%= link_to item.name, item_path(item) %></td>
+		          <td><%= item.current_price %></td>
+		        </tr>
+		      <% end %>
+	    </tbody>
+  	</table>		
 	</div>
 	<div class="small-1 columns">
 		&nbsp;
