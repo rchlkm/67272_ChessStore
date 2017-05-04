@@ -12,9 +12,6 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require foundation.min
+//= require materialize-sprockets
 //= require_tree .
 
-$(function() {
-  $(document).foundation('topbar', 'reflow');
-});
