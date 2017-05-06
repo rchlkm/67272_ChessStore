@@ -23,6 +23,7 @@ body {
   
 .main {
 	flex: 1 0 auto !important;
+	width: 95%;
 }
 
 nav.nav-extended .nav-wrapper {
