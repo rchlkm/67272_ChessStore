@@ -1,0 +1,103 @@
+.clear:before,
+.clear:after {
+  content:" ";
+  display:table;
+}
+.clear:after {
+  clear:both;
+}
+
+body {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+  
+.main {
+	/*padding-top: 40px;*/
+	flex: 1 0 auto;
+}
+
+nav.nav-extended .nav-wrapper {
+	min-height: 100px !important;
+}
+nav a {
+  color: #424242 !important;
+}
+
+nav ul a:hover {
+	background-color: white;
+  color: grey !important;
+}
+
+.navbar-fixed.customer-nav  {
+	height: 100px !important;
+	overflow: auto;
+}
+
+.navbar-fixed.employee-nav  {
+	height: 150px !important;
+	overflow: auto;
+}
+
+/* allows logo to be on the left of the nav */
+.nav-left {
+	margin-left: 130px;
+}
+
+.login.btn-large:hover {
+	box-shadow: 0 8px 10px 1px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12), 0 5px 5px -3px rgba(0, 0, 0, 0.3) !important;
+}
+
+#signin {
+	background-color: white !important;
+	color: black !important;
+	border: 2px solid black !important;
+	margin: 0 10px;
+
+}
+
+#signup {
+	background-color: black !important;
+	color: white !important;
+	margin-left: 10px;
+}
+
+.page-header h1{
+	font-size: 2em;
+	margin-bottom: 0em;
+}
+.page-header a {
+	font-size: 1em;
+}
+
+nav.nav-breadcrumb {
+	box-shadow: none !important;
+	line-height: 45px;
+}
+.breadcrumb:before {
+  content: '\E5CC';
+  color: black;
+  vertical-align: top;
+  display: inline-block;
+  font-family: 'Material Icons';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 1em;
+  margin: 0 10px 0 8px;
+  -webkit-font-smoothing: antialiased;
+}
+
+.item {
+	/*font-size: 1em !important;*/
+	text-align: center !important;
+	text-transform: uppercase;
+}
+
+.card .card-content {
+	padding: .5em;
+}
+
+.pagination li.active {
+  background-color: #bdbdbd;
+}
