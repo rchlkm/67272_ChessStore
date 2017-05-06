@@ -1,0 +1,33 @@
+<div class="navbar-fixed customer-nav">
+  <nav class="nav-extended white">
+    <div class="nav-wrapper valign-wrapper">
+      <div class="container">
+        <div class="brand-logo">
+        <%= link_to image_tag("logo.png", :alt => "A&M", :class => "css"), home_path %>
+        </div>
+
+        <ul id="nav-mobile" class="nav-left hide-on-med-and-down">
+          <li><%= link_to "PIECES", items_path %></li>
+          <li><%= link_to "BOARDS", items_path %></li>
+          <li><%= link_to "CLOCKS", items_path %></li>
+          <li><%= link_to "SUPPLIES", items_path %></li>
+        </ul>
+
+        <% if !logged_in? %>
+          <%= render :partial => "partials/nav/login_buttons" %>
+        <% elsif current_user.role?(:customer) %>
+					<div class="right login">
+					  <ul id="nav-mobile" class="nav-left hide-on-med-and-down">
+					  	<li><%= link_to "ACCOUNT", user_account_path %></li>
+					  	<li><%= link_to "Cart", cart_path %></li>
+					 	</ul>
+					</div>
+        <% end %>
+
+
+      
+      </div>
+    </div>
+
+  </nav>
+</div>

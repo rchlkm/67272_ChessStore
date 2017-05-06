@@ -20,17 +20,13 @@
   <body>
      <%= render :partial => "partials/nav/nav" %>
     
-<!--     <div class="row">
+    <div class="row">
       <div class="small-12 columns" id="main_content">
-        <%# render :partial => "partials/flash" %>
-        <%# yield %>
+        <%= render :partial => "partials/flash" %>
+        <%= yield %>
       </div>
-    </div> -->
-    <footer>
-      <div class="small-12 columns" id="footer">
-        <%# render partial: 'partials/footer' %>
-      </div>
-    </footer> 
-    <%# javascript_include_tag "application" %>
+    </div>
+    <%= render partial: 'partials/footer' %>
+    <%= javascript_include_tag "application" %>
   </body>
 </html>

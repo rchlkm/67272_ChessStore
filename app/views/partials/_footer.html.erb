@@ -1,15 +1,31 @@
+<footer class="page-footer grey lighten-3">
+	  <div class="container">
+	    <div class="row">
+	      <div class="col l6 s12">
+	        <h5 class="black-text">Footer Content</h5>
+	        <p class="grey-text">You can use rows and columns here to organize your footer content.</p>
+	      </div>
+	      <div class="col l4 offset-l2 s12">
+	        <h5 class="black-text">Links</h5>
+	        <ul>
 
-<footer>
-
-	<%= link_to 'Home', home_path %>&nbsp;&nbsp;::&nbsp;&nbsp;
-  <%= link_to 'About the Chess Store', about_path %>&nbsp;&nbsp;::&nbsp;&nbsp;
-	<%= link_to 'Contact Us', contact_path %>&nbsp;&nbsp;::&nbsp;&nbsp;
-	<%= link_to 'Privacy Policy', privacy_path %>
-	<br /><br />
-	
-	<div id="copy">
-		Webmaster: <%= mail_to("YOUR EMAIL", "YOUR NAME", encode: "javascript") %> 
-		&nbsp;&nbsp;&copy 2017
-	</div>
-
-</footer>
+						<li><%= link_to 'Home', home_path %></li>
+						<li><%= link_to 'About the Chess Store', about_path %></li>
+						<li><%= link_to 'Contact Us', contact_path %></li>
+						<li><%= link_to 'Privacy Policy', privacy_path %></li>
+	          <!-- <li><a class="grey-text" href="#!">Link 1</a></li>
+	          <li><a class="grey-text" href="#!">Link 2</a></li>
+	          <li><a class="grey-text" href="#!">Link 3</a></li>
+	          <li><a class="grey-text" href="#!">Link 4</a></li> -->
+	        </ul>
+	      </div>
+	    </div>
+	  </div>
+	  <div class="footer-copyright">
+	    <div class="container black-text">
+	    	<div class="right">
+	    	© 2017 <%= mail_to("rachelkim@cmu.edu", "Rachel Kim", encode: "javascript") %> 
+	    	</div>
+	    </div>
+	  </div>
+	</footer>     

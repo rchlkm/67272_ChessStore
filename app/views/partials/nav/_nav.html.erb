@@ -1,44 +1,6 @@
-<div class="navbar-fixed customer-nav">
-  <nav class="nav-extended white">
-    <div class="nav-wrapper valign-wrapper">
-      <div class="container">
-        <!-- <a href="#" class="brand-logo"><img border="0" alt="A&M" src="images/logo.png" width="120" height="70"></a> -->
-        <div class="brand-logo">
-        <%= link_to image_tag("logo.png", :alt => "A&M", :class => "css"), home_path %>
-        </div>
+<% if !logged_in? or current_user.role?(:customer) %>
+  <%= render :partial => "partials/nav/nav_customer" %>
+<% else %> <!-- user is an employee  -->
+  <%= render :partial => "partials/nav/nav_employee" %>  
+<% end %>
 
-<!--         <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a> -->
-        <ul id="nav-mobile" class="nav-left hide-on-med-and-down">
-          <li><%= link_to "PIECES", items_path %></li>
-          <li><%= link_to "BOARDS", items_path %></li>
-          <li><%= link_to "CLOCKS", items_path %></li>
-          <li><%= link_to "SUPPLIES", items_path %></li>
-        </ul>
-
-        <% if !logged_in? %>
-
-        <% end %>
-
-        <div id="login" class="right login">
-          <% if !logged_in? %>
-            <div id="signin" class="btn">
-              <%= link_to 'Sign Out', login_path %>
-            </div>
-            <div id="signup" class="btn">
-              <%= link_to 'Sign Out', logout_path %>
-            </div>
-          <% end %>
-        </div>
-
-
-
-   <!--      <ul class="side-nav" id="mobile-demo">
-          <li><a href="sass.html">Sass</a></li>
-          <li><a href="badges.html">Components</a></li>
-          <li><a href="collapsible.html">JavaScript</a></li>
-        </ul> -->
-      </div>
-    </div>
-
-  </nav>
-</div>

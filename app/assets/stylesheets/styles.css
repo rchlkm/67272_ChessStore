@@ -1,3 +1,11 @@
+.container {
+  margin: 0 auto;
+  max-width: 1280px;
+  width: 85% !important;
+}
+
+
+
 .clear:before,
 .clear:after {
   content:" ";
@@ -8,13 +16,13 @@
 }
 
 body {
-  display: flex;
-  min-height: 100vh;
-  flex-direction: column;
+  display: flex !important;
+  min-height: 100vh !important;
+  flex-direction: column !important;
 }
   
 .main {
-	flex: 1 0 auto;
+	flex: 1 0 auto !important;
 }
 
 nav.nav-extended .nav-wrapper {
@@ -26,8 +34,8 @@ nav li a {
 }
 
 nav ul a:hover {
-	background-color: white;
-  color: grey !important;
+	/*background-color: white;*/
+  /*color: grey !important;*/
 }
 
 .navbar-fixed.customer-nav  {
