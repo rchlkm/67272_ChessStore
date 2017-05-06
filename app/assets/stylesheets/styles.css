@@ -14,15 +14,15 @@ body {
 }
   
 .main {
-	/*padding-top: 40px;*/
 	flex: 1 0 auto;
 }
 
 nav.nav-extended .nav-wrapper {
 	min-height: 100px !important;
 }
-nav a {
+nav li a {
   color: #424242 !important;
+  text-transform: uppercase;
 }
 
 nav ul a:hover {
@@ -40,27 +40,33 @@ nav ul a:hover {
 	overflow: auto;
 }
 
+.brand-logo img {
+	width: 120px;
+	height: 70px;
+}
+
 /* allows logo to be on the left of the nav */
 .nav-left {
 	margin-left: 130px;
 }
 
-.login.btn-large:hover {
+.login.btn:hover, .logout.btn:hover {
 	box-shadow: 0 8px 10px 1px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12), 0 5px 5px -3px rgba(0, 0, 0, 0.3) !important;
 }
 
 #signin {
 	background-color: white !important;
-	color: black !important;
 	border: 2px solid black !important;
 	margin: 0 10px;
-
+}
+#signin a {
+	color: black !important;
 }
 
 #signup {
 	background-color: black !important;
 	color: white !important;
-	margin-left: 10px;
+	/*margin-left: 10px;*/
 }
 
 .page-header h1{
