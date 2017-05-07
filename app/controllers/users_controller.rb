@@ -7,9 +7,9 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user_assignments = @user.assignments.active.by_project
-    @created_tasks = Task.for_creator(@user.id).by_name
-    @completed_tasks = Task.for_completer(@user.id).by_name
+    # @user_assignments = @user.assignments.active.by_project
+    # @created_tasks = Task.for_creator(@user.id).by_name
+    # @completed_tasks = Task.for_completer(@user.id).by_name
   end
 
   def new
@@ -25,6 +25,8 @@ class UsersController < ApplicationController
       session[:user_id] = @user.id
       redirect_to home_path, notice: "Thank you for signing up!"
     else
+      puts "========="
+      puts @user.role
       flash[:error] = "This user could not be created."
       render "new"
     end
@@ -52,9 +54,11 @@ class UsersController < ApplicationController
 
     def user_params
       if current_user && current_user.role?(:admin)
-        params.require(:user).permit(:first_name, :last_name, :email, :password, :password_confirmation, :role, :active)  
+        params.require(:user).permit(:first_name, :last_name, :email, :username, :phone, :password, :password_confirmation, :role, :active)  
+
       else
-        params.require(:user).permit(:first_name, :last_name, :email, :password, :password_confirmation, :active)
+        # params.require(:user).permit(:first_name, :last_name, :email, :password, :password_confirmation, :active)
+        params.require(:user).permit(:first_name, :last_name, :email, :username, :phone, :password, :password_confirmation, :active, :role)
       end
     end
 end

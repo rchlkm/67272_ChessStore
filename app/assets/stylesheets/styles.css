@@ -22,6 +22,9 @@ body {
 }
   
 .main {
+	margin-top: 40px;
+	margin-bottom: 40px;
+
 	flex: 1 0 auto !important;
 	width: 90%;
 }
@@ -89,6 +92,9 @@ nav.nav-breadcrumb {
 	box-shadow: none !important;
 	line-height: 45px;
 }
+a.breadcrumb, .breadcrumb:last-child {
+	color: black;
+}
 .breadcrumb:before {
   content: '\E5CC';
   color: black;
@@ -131,9 +137,11 @@ input[type=submit] {
  color: white;
  text-transform: uppercase;
  
- width: 130px;
+ /*width: 130px;*/
  height: 40px;
- 
+ padding: 0 20px;
+ margin-top: 40px; 
+ margin-right: 10px;
 
 }
 
@@ -167,5 +175,10 @@ input[type=text]:focus {
 /* icon prefix focus color */
 .input-field .prefix.active {
  color: #000;
+}
+
+select {
+	display: block;
+	margin-top: 20px;
 }
         
