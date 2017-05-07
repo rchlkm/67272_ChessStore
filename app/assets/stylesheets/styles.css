@@ -23,7 +23,7 @@ body {
   
 .main {
 	flex: 1 0 auto !important;
-	width: 95%;
+	width: 90%;
 }
 
 nav.nav-extended .nav-wrapper {
@@ -62,25 +62,24 @@ nav ul a:hover {
 .login.btn:hover, .logout.btn:hover {
 	box-shadow: 0 8px 10px 1px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12), 0 5px 5px -3px rgba(0, 0, 0, 0.3) !important;
 }
-
-#signin {
+/* sign in */
+.btn-white {
 	background-color: white !important;
 	border: 2px solid black !important;
 	margin: 0 10px;
 }
-#signin a {
+.btn-white a {
 	color: black !important;
 }
 
-#signup {
+.btn-black {
 	background-color: black !important;
 	color: white !important;
 	/*margin-left: 10px;*/
 }
-
-.page-header h1{
+/*.page-header*/ h1{
 	font-size: 2em;
-	margin-bottom: 0em;
+	/*margin-bottom: 0em;*/
 }
 .page-header a {
 	font-size: 1em;
@@ -116,3 +115,57 @@ nav.nav-breadcrumb {
 .pagination li.active {
   background-color: #bdbdbd;
 }
+
+
+
+
+
+
+/* ------------ */
+/* --- FORM --- */
+/* ------------ */
+
+/* submit button */
+input[type=submit] {
+ background-color: black;
+ color: white;
+ text-transform: uppercase;
+ 
+ width: 130px;
+ height: 40px;
+ 
+
+}
+
+input[type=submit]:hover {
+	box-shadow: 0 1px 0 0;
+}
+
+/* label color */
+label {
+ color: #757575;
+}
+/* label focus color */
+input[type=text]:focus + label {
+ color: #757575;
+}
+/* label underline focus color */
+input[type=text]:focus {
+ border-bottom: 1px solid #757575;
+ box-shadow: 0 1px 0 0 #757575;
+}
+/* valid color */
+.input-field input[type=text].valid {
+ border-bottom: 1px solid #000;
+ box-shadow: 0 1px 0 0 #000;
+}
+/* invalid color */
+.input-field input[type=text].invalid {
+ border-bottom: 1px solid #000;
+ box-shadow: 0 1px 0 0 #000;
+}
+/* icon prefix focus color */
+.input-field .prefix.active {
+ color: #000;
+}
+        
