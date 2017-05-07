@@ -13,3 +13,191 @@
  *= require_tree .
  *= require_self
  */
+.container {
+  margin: 0 auto;
+  max-width: 1280px;
+  width: 85% !important;
+}
+
+.container.row {
+	margin: 0;
+}
+
+
+
+.clear:before,
+.clear:after {
+  content:" ";
+  display:table;
+}
+.clear:after {
+  clear:both;
+}
+
+body {
+  display: flex !important;
+  min-height: 100vh !important;
+  flex-direction: column !important;
+}
+  
+.main {
+	margin-top: 40px;
+	margin-bottom: 40px;
+
+	flex: 1 0 auto !important;
+	width: 90%;
+}
+
+nav.nav-extended .nav-wrapper {
+	min-height: 100px !important;
+}
+nav li a {
+  color: #424242 !important;
+  text-transform: uppercase;
+}
+
+nav ul a:hover {
+	/*background-color: white;*/
+  /*color: grey !important;*/
+}
+
+.navbar-fixed.customer-nav  {
+	height: 100px !important;
+	overflow: auto;
+}
+
+.navbar-fixed.employee-nav  {
+	height: 150px !important;
+	overflow: auto;
+}
+
+.brand-logo img {
+	width: 120px;
+	height: 70px;
+}
+
+/* allows logo to be on the left of the nav */
+.nav-left {
+	margin-left: 130px;
+}
+
+.login.btn:hover, .logout.btn:hover {
+	box-shadow: 0 8px 10px 1px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12), 0 5px 5px -3px rgba(0, 0, 0, 0.3) !important;
+}
+/* sign in */
+.btn-white {
+	background-color: white !important;
+	border: 2px solid black !important;
+	margin: 0 10px;
+}
+.btn-white a {
+	color: black !important;
+}
+
+.btn-black {
+	background-color: black !important;
+	color: white !important;
+	/*margin-left: 10px;*/
+}
+/*.page-header*/ h1{
+	font-size: 2em;
+	/*margin-bottom: 0em;*/
+}
+.page-header a {
+	font-size: 1em;
+}
+
+nav.nav-breadcrumb {
+	box-shadow: none !important;
+	line-height: 45px;
+}
+a.breadcrumb, .breadcrumb:last-child {
+	color: black;
+}
+.breadcrumb:before {
+  content: '\E5CC';
+  color: black;
+  vertical-align: top;
+  display: inline-block;
+  font-family: 'Material Icons';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 1em;
+  margin: 0 10px 0 8px;
+  -webkit-font-smoothing: antialiased;
+}
+
+.item {
+	/*font-size: 1em !important;*/
+	text-align: center !important;
+	text-transform: uppercase;
+}
+
+.card .card-content {
+	padding: .5em;
+}
+
+.pagination li.active {
+  background-color: #bdbdbd;
+}
+
+
+
+
+
+
+/* ------------ */
+/* --- FORM --- */
+/* ------------ */
+
+/* submit button */
+input[type=submit] {
+ background-color: black;
+ color: white;
+ text-transform: uppercase;
+ 
+ /*width: 130px;*/
+ height: 40px;
+ padding: 0 20px;
+ margin-top: 40px; 
+ margin-right: 10px;
+
+}
+
+input[type=submit]:hover {
+	box-shadow: 0 1px 0 0;
+}
+
+/* label color */
+label {
+ color: #757575;
+}
+/* label focus color */
+input[type=text]:focus + label {
+ color: #757575;
+}
+/* label underline focus color */
+input[type=text]:focus {
+ border-bottom: 1px solid #757575;
+ box-shadow: 0 1px 0 0 #757575;
+}
+/* valid color */
+.input-field input[type=text].valid {
+ border-bottom: 1px solid #000;
+ box-shadow: 0 1px 0 0 #000;
+}
+/* invalid color */
+.input-field input[type=text].invalid {
+ border-bottom: 1px solid #000;
+ box-shadow: 0 1px 0 0 #000;
+}
+/* icon prefix focus color */
+.input-field .prefix.active {
+ color: #000;
+}
+
+select {
+	display: block;
+	margin-top: 20px;
+}
+        

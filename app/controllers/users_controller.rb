@@ -25,8 +25,6 @@ class UsersController < ApplicationController
       session[:user_id] = @user.id
       redirect_to home_path, notice: "Thank you for signing up!"
     else
-      puts "========="
-      puts @user.role
       flash[:error] = "This user could not be created."
       render "new"
     end
