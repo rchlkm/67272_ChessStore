@@ -27,6 +27,11 @@ $(document).ready(function() {
 
 });
 
+$('#mainMenu').on('click',function(){
+ $('#dropdown1').toggle();
+});
+
+
 
 
   
