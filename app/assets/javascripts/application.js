@@ -12,6 +12,22 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require materialize-sprockets
-//= require_tree .
+//= require materialize
+//= require_tree
+
+
+$(document).ready(function() {
+
+  $('.dropdown-button').dropdown();
+  $('.collapsible').collapsible({
+    accordion: false, // A setting that changes the collapsible behavior to expandable instead of the default accordion style
+    onOpen: function(el) { alert('Open'); }, // Callback for Collapsible open
+    onClose: function(el) { alert('Closed'); } // Callback for Collapsible close
+  });
+
+});
+
+
+
+  
 
