@@ -1,0 +1,29 @@
+<div class="row">
+  
+  <div class="col s8">
+
+    <p>
+      <%= current_user.proper_name %>
+    </p>
+
+    <p>
+      <b>Username: </b><%= current_user.username %>
+    </p>
+
+    <p>
+      <%= current_user.email %>
+    </p>
+
+    <p>
+      <%= current_user.phone %>
+    </p>
+
+    <p>
+      <%= current_user.role %>
+    </p>
+
+    <p>
+      <b>Active</b>: <%= current_user.active ? 'Yes' : 'No' %>
+    </p>
+  </div>
+</div>

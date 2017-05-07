@@ -1,4 +1,13 @@
 <div class="row">
-  <p>Show user details!!</p>
+	<%# render :partial => "partials/page_header" %>
+  <div class="col s12">
+    <%= render :partial => "user_details" %>
+  </div>
+
+
+   <!-- order history -->
+
 </div>
 
+<!-- Add buttons to list all, edit project or destroy object -->
+<%= render partial: "partials/object_options", locals: {model_name: "user", object: @user}  %>

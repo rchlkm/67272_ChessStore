@@ -16,15 +16,35 @@
         <% if !logged_in? %>
           <%= render :partial => "partials/nav/login_buttons" %>
         <% elsif current_user.role?(:customer) %>
-					<div class="right login">
+					
+          <div class="right login">
 					  <ul id="nav-mobile" class="nav-left hide-on-med-and-down">
-					  	<li><%= link_to "ACCOUNT", user_path(current_user), class: "dropdown-button", :data => { :'data-attribute' => 'dropdown1' }  %></li>
-              <li><%= link_to 'Logout', logout_path %></li>
+              <!-- <li><a class='dropdown-button' href='#' data-activates='dropdown1'>Account</a></li> -->
+              <li><a class="dropdown-button" href="#!" data-activates="dropdown1">ACCOUNT<i class="material-icons right">arrow_drop_down</i></a></li>
+					  	<!-- <li><%# link_to "ACCOUNT", user_path(current_user), class: "dropdown-button", :data => { :'data-attribute' => 'dropdown1' }  %></li> -->
               <!-- <li><a class="dropdown-button" href="#!" data-activates="dropdown1">Dropdown<i class="material-icons right">arrow_drop_down</i></a></li> -->
-					  	<li><%# link_to "Cart", cart_path %>CART</li>
+
+              <!-- <li><%# link_to 'Logout', logout_path %></li> -->
+              <!-- <li><a class="dropdown-button" href="#!" data-activates="dropdown1">Dropdown<i class="material-icons right">arrow_drop_down</i></a></li> -->
+					  	<li><%= link_to "Cart", logout_path %>CART</li>
 					 	</ul>
 					</div>
-        <% end %>
+        <% end %>     
+
+        <!-- Dropdown Structure -->
+        <ul id='dropdown1' class='dropdown-content'>
+          <li><a href="#!">one</a></li>
+          <li><% link_to "ACCOUNT", user_path(current_user) %></li>
+          <!-- <li><%#link_to "ACCOUNT", user_path(current_user), class: "dropdown-button", :data => { :'data-attribute' => 'dropdown1' }  %></li> -->
+          <li><%= link_to 'Logout', logout_path %></li>
+
+          <li class="divider"></li>
+          <li><a href="#!">three</a></li>
+          <li><a href="#!"><i class="material-icons">view_module</i>four</a></li>
+          <li><a href="#!"><i class="material-icons">cloud</i>five</a></li>
+        </ul>
+
+        
 
 
       

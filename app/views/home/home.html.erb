@@ -7,6 +7,8 @@
 
 	<% elsif current_user.role?(:shipper) %>
 		<%= render :partial => 'ship_list' %>
+	<% else %>
+		<%= render :partial => 'general_home' %>
 	<% end %>
 
 <% else %>
