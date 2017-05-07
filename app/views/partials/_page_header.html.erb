@@ -1,23 +1,25 @@
-<div class="page-header">
-  <% if controller.controller_name == "items" %>
-    <% if controller.action_name == "show" %>
-      <h1><%= @item.name %></h1>
-    <% else %>
-      <h1><%= controller.action_name.capitalize %></h1>
+<% if controller.controller_name != "sessions" %>
+  <div class="page-header">
+    <% if controller.controller_name == "items" %>
+      <% if controller.action_name == "show" %>
+        <h1><%= @item.name %></h1>
+      <% else %>
+        <h1><%= controller.action_name.capitalize %></h1>
+      <% end %>
+    <% elsif controller.controller_name == "home" %>
+      <h1>All Items</h1>
     <% end %>
-  <% elsif controller.controller_name == "home" %>
-    <h1>All Items</h1>
-  <% end %>
 
-	<!-- <h1><%# controller.controller_name.capitalize %></h1> -->
-	<!-- <h1>Pieces</h1> -->
-  <nav class="nav-breadcrumb">
-    <div class="nav-wrapper white">
-      <div class="col s12">
-        <a href="#!" class="breadcrumb">First</a>
-        <a href="#!" class="breadcrumb">Second</a>
-        <a href="#!" class="breadcrumb">Third</a>
+  	<!-- <h1><%# controller.controller_name.capitalize %></h1> -->
+  	<!-- <h1>Pieces</h1> -->
+    <nav class="nav-breadcrumb">
+      <div class="nav-wrapper white">
+        <div class="col s12">
+          <a href="#!" class="breadcrumb">First</a>
+          <a href="#!" class="breadcrumb">Second</a>
+          <a href="#!" class="breadcrumb">Third</a>
+        </div>
       </div>
-    </div>
-  </nav>
-</div>
+    </nav>
+  </div>
+<% end %>
