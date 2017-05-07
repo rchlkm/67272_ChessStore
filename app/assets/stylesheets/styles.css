@@ -4,6 +4,10 @@
   width: 85% !important;
 }
 
+.container.row {
+	margin: 0;
+}
+
 
 
 .clear:before,

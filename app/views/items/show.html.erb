@@ -1,9 +1,15 @@
 <div class="row">
+	<%= render :partial => "partials/page_header" %>
   <div class="col s12">
     <%= render :partial => "item_details" %>
   </div>
   <div class="col s6">
     <%= render :partial => "price_history" unless @price_history.empty?%>
+   </div>
+   <div class="col s6">
+    <%= render :partial => "similar_items" unless @similar_items.empty?%>
+  </div>
+  <div class="col s12">
     <%= render :partial => "similar_items" unless @similar_items.empty?%>
   </div>
 </div>

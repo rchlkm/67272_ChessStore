@@ -22,6 +22,11 @@ Rails.application.routes.draw do
   get 'contact' => 'home#contact', as: :contact
   get 'privacy' => 'home#privacy', as: :privacy
 
+  # guest/customer store routes
+  get 'pieces' => 'items#pieces', as: :pieces
+  get 'boards' => 'items#boards', as: :boards
+  get 'clocks' => 'items#clocks', as: :clocks
+  get 'supplies' => 'items#supplies', as: :supplies
   
   # Set the root url (default route)
   root :to => 'home#home'  
