@@ -3,8 +3,6 @@ class CartsController < ApplicationController
 
 	def show
 		@cart_items = get_list_of_items_in_cart
-		puts "======="
-		puts @cart_items.first.item_id
 	end
 
 	def add_to_cart

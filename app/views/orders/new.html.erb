@@ -1,1 +1,49 @@
-<p>time to checkout!</p>
+<div class="row">
+<div class="col s8">
+<%= form_for(@order) do |f| %>
+  <% if @order.errors.any? %>
+    <div id="error_explanation">
+      <div class='card-panel red-text red lighten-5'>
+          <h5><%= pluralize(@order.errors.count, "error") %> prohibited this order from being placed:</h5>
+   
+        <ul>
+        <% @order.errors.full_messages.each do |msg| %>
+          <li><i><%= msg %></i></li>
+        <% end %>
+        </ul>
+      </div>
+    </div>
+  <% end %>
+
+	<div class="input-field">
+    <%= f.label :school_id %><br />
+    <%# f.text_field :role, :value => "Customer" %>
+    <%= f.select :school_id, School.active.alphabetical.collect {|s| [s.name, s.id]}, :prompt => "Select ..." %>
+
+    <%# f.collection_select :role, School.active.alphabetical, :last, :first %>
+
+    <%# f.hidden_field :role, :value => "customer" %>
+
+  </div>
+
+  <div class="input-field">
+    <%# f.label :card_number %><br />
+    <%# f.text_field :card_number %>
+  </div>
+
+  <div class="input-field">
+    <%# f.label :expiration_date %><br />
+    <%# f.text_field :expiration_date %>
+  </div>
+
+
+  
+
+  <div class="form-actions">
+      <%= f.submit "PLACE ORDER" %>
+      <%= link_to 'Cancel',users_path, :class => 'button alert radius' %>
+  </div>
+
+<% end %>
+</div>
+</div>
