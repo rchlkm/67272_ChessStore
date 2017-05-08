@@ -7,6 +7,7 @@ class UsersController < ApplicationController
   end
 
   def show
+    @order_history = Order.for_user(@user.id)
     # @user_assignments = @user.assignments.active.by_project
     # @created_tasks = Task.for_creator(@user.id).by_name
     # @completed_tasks = Task.for_completer(@user.id).by_name

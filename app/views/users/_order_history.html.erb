@@ -1,0 +1,11 @@
+<% unless @order_history.empty? %>
+  <div class="panel clearfix">
+    <h3>Order History</h3>
+    <ul>
+      <% @order_history.each do |order| %>
+        <%= order.id %>
+      <% end %>
+    </ul>
+
+  </div>
+<% end %>
