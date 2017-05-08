@@ -15,12 +15,19 @@
     </div>
   <% end %>
 
+  <h4>Shipping Information</h4>
 	<div class="input-field">
     <%= f.label :school_id %><br />
     <%= f.select :school_id, School.active.alphabetical.collect {|s| [s.name, s.id]},include_blank: true, :prompt => "Select ..." %>
     <%# f.collection_select :role, School.active.alphabetical, :last, :first %>
   </div>
+  <div class="btn btn-black">
+    <%= link_to 'Create New School', create_new_school_path %>
+  </div>
 
+
+  <br><hr><br>
+  <h4>Payment Information</h4>
   <div class="input-field">
     <%= f.label :credit_card_number %><br />
     <%= f.number_field :credit_card_number %>
