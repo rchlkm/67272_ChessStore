@@ -17,25 +17,27 @@
 
 	<div class="input-field">
     <%= f.label :school_id %><br />
-    <%= f.select :school_id, School.active.alphabetical.collect {|s| [s.name, s.id]}, :prompt => "Select ..." %>
-
+    <%= f.select :school_id, School.active.alphabetical.collect {|s| [s.name, s.id]},include_blank: true, :prompt => "Select ..." %>
     <%# f.collection_select :role, School.active.alphabetical, :last, :first %>
-
-    
-
   </div>
 
   <div class="input-field">
-    <%# f.label :card_number %><br />
-    <%# f.text_field :card_number %>
+    <%= f.label :credit_card_number %><br />
+    <%= f.number_field :credit_card_number %>
   </div>
 
   <div class="input-field">
-    <%# f.label :expiration_date %><br />
-    <%# f.text_field :expiration_date %>
+    <%= f.label :expiration_year %><br />
+    <%= f.number_field :expiration_year %>
   </div>
 
-  <%= f.hidden_field :user_id, :value => current_user %>
+  <div class="input-field">
+    <%= f.label :expiration_month %><br />
+    <%= f.number_field :expiration_month %>
+  </div>
+
+
+  <%# f.hidden_field :user_id, :value => current_user %>
   
 
   <div class="form-actions">

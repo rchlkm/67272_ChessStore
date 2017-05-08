@@ -1,11 +1,33 @@
 <% unless @order_history.empty? %>
-  <div class="panel clearfix">
-    <h3>Order History</h3>
-    <ul>
-      <% @order_history.each do |order| %>
-        <%= order.id %>
-      <% end %>
-    </ul>
 
-  </div>
+
+<div class="row">
+	<div class="small-7 columns">
+		
+		<h3>Order History</h3>
+		<table class="table table-striped">
+		    <thead>
+		      <tr>
+		        <th width="250">Order</th>
+		        <th width="125">Date</th>
+		      </tr>
+		    </thead>
+		    <tbody>
+		      <% @order_history.each do |order| %>
+		        <tr>
+		          <td><%= link_to order.id, order_path(order.id) %></td>
+		          <td><%= order.date %></td>
+		        </tr>
+		      <% end %>
+	    </tbody>
+  	</table>		
+	</div>
+
+</div>
+
+
 <% end %>
+
+
+
+
