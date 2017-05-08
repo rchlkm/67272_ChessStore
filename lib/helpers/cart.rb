@@ -7,6 +7,7 @@ module ChessStoreHelpers
 
     def create_cart
       session[:cart] ||= Hash.new
+      puts "I HAVE BEEN CREATED~!1"
     end
 
     def clear_cart
@@ -45,7 +46,7 @@ module ChessStoreHelpers
     end
 
     def get_list_of_items_in_cart
-      order_items = Array.new
+      order_items = Array.new      
       return order_items if session[:cart].empty? # skip if cart empty...
       session[:cart].each do |item_id, quantity|
         info = {item_id: item_id, quantity: quantity}

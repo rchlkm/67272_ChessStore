@@ -1,5 +1,6 @@
 <div class="row">
-	<% if @cart.empty? %>
+
+	<% if @cart_items.empty? %>
 		<p>You have not added any items in your cart.</p>
 		<p>Now is your chance to add <%= link_to "items", items_path %> to your cart! :)</p>
 	<% else %>
@@ -13,7 +14,7 @@
 		      </tr>
 		    </thead>
 		    <tbody>
-		      <% @cart.each do |item| %>
+		      <% @cart_items.each do |item| %>
 		        <tr>
 		          <td><%= link_to item.name, item_path(item) %></td>
 		          <td><%= item.quantity %></td>
@@ -30,6 +31,7 @@
 	</div>
 
 		<% end %>
+
 </div>
 
 

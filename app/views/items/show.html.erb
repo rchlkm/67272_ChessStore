@@ -2,6 +2,9 @@
   <div class="col s12">
     <%= render :partial => "item_details" %>
 
+    <div class="btn btn-black">
+      <%= link_to 'Add to Cart', add_to_cart_path(@item.id) %>
+    </div>
     <%# render :partial => "order_items/form" %>
     <%# render :partial => "add_to_cart" %>
   </div>

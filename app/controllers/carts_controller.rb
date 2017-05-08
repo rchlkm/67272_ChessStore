@@ -1,11 +1,16 @@
 class CartsController < ApplicationController
+	include ChessStoreHelpers::Cart
+
 	def show
-		@cart = current_order.order_items
+		@cart_items = get_list_of_items_in_cart
+		puts "======="
+		puts @cart_items.size
 	end
 
 	def add_to_cart
-	   # current_cart.add_item(params[:item_id])
-	   # redirect_to carts_path(current_cart.id)
+	   add_item_to_cart(params[:id])
+	   redirect_to :back
+	   # redirect_to cart_path
 	end
 
  end
