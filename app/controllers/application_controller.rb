@@ -2,6 +2,7 @@ class ApplicationController < ActionController::Base
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
+  helper_method :current_order
 
   # a custom module to handle some issues with dates
   # include DateFormatter # -- not needed now b/c of gem
@@ -17,6 +18,14 @@ class ApplicationController < ActionController::Base
     render template: 'errors/not_found'
   end
   
+
+  def current_order
+    if !session[:order_id].nil?
+      Order.find(session[:order_id])
+    else
+      Order.new
+    end
+  end
   
   private
   # Handling authentication

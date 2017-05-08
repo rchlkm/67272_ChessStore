@@ -5,8 +5,8 @@ Rails.application.routes.draw do
   resources :purchases
   resources :item_prices
   resources :users
-  # resources :orders
-  # resources :order_items
+  resources :orders
+  resources :order_items
   # resources :schools
   resources :sessions
 
@@ -27,9 +27,11 @@ Rails.application.routes.draw do
   get 'boards' => 'items#boards', as: :boards
   get 'clocks' => 'items#clocks', as: :clocks
   get 'supplies' => 'items#supplies', as: :supplies
+
+  # cart
+  get 'cart' => 'carts#show', as: :cart
   
   # Set the root url (default route)
-  root :to => 'home#home'  
-  # root :to => 'bands#index', :as => :home
+  root :to => 'home#home'
 
 end
