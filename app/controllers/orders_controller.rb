@@ -1,5 +1,6 @@
 class OrdersController < ApplicationController
-	before_action :set_user, only: [:show, :edit, :update, :destroy]
+  include ChessStoreHelpers::Cart
+	before_action :set_order, only: [:show, :edit, :update, :destroy]
 
 	def show
     # @user_orders = Order.for_user(current_user.id)
@@ -14,6 +15,7 @@ class OrdersController < ApplicationController
     @order.date = Date.current
     @order.user_id = current_user.id
     if @order.save
+      clear_cart
       redirect_to home_path, notice: "Thank you for placing an order!"
     else
       flash[:error] = "This order could not be placed."
