@@ -4,33 +4,32 @@
 		<p>You have not added any items in your cart.</p>
 		<p>Now is your chance to add <%= link_to "items", items_path %> to your cart! :)</p>
 	<% else %>
-	<div class="small-7 columns">
+		<div class="small-7 columns">
 
-		<table class="table table-striped">
-		    <thead>
-		      <tr>
-		        <th width="250">Name</th>
-		        <th width="125">Quantity</th>
-		      </tr>
-		    </thead>
-		    <tbody>
-		      <% @cart_items.each do |oi| %>
-		        <tr>
-		          <td><%= link_to oi.item.name, item_path(oi.item.id) %></td>
-		          <td><%= oi.quantity %></td>
-		        </tr>
-		      <% end %>
-	    </tbody>
-  	</table>		
-	</div>
-	<div class="small-1 columns">
-		&nbsp;
-	</div>
-	<div class="small-4 columns">
-		&nbsp;
-	</div>
+			<table class="table table-striped">
+			    <thead>
+			      <tr>
+			        <th width="250">Name</th>
+			        <th width="125">Quantity</th>
+			      </tr>
+			    </thead>
+			    <tbody>
+			      <% @cart_items.each do |oi| %>
+			        <tr>
+			          <td><%= link_to oi.item.name, item_path(oi.item.id) %></td>
+			          <td><%= oi.quantity %></td>
+			        </tr>
+			      <% end %>
+			    </tbody>
+		  	</table>		
+		</div>
 
-		<% end %>
+		<div class="btn btn-black">
+		  <%= link_to 'CHECKOUT NOW', checkout_path %>
+		</div>
+
+
+	<% end %>
 
 </div>
 

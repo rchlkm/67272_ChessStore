@@ -10,6 +10,33 @@ class Ability
       else
         can :read, :all
       end
+      
+      # elsif user.role? :manager
+
+      # elsif user.role? :shipper
+
+      # elsif user.role? :customer
+      #   # read information on items
+      #   can :read, Item  do |this_item|  
+      #     my_projects = user.projects.map(&:id)
+      #     my_projects.include? this_project.id 
+      #   end   
+
+      #   # read own profile
+      #   can :show, User do |u|  
+      #     u.id == user.id
+      #   end
+
+      #  # update own profile
+      #   can :update, User do |u|  
+      #     u.id == user.id
+      #   end
+
+      # else
+      #   can :read, :all
+      #   # # guests can only read domains covered (plus home pages)
+      #   # can :read, Domain
+      # end
 
 
 
