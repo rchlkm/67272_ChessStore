@@ -7,7 +7,6 @@ module ChessStoreHelpers
 
     def create_cart
       session[:cart] ||= Hash.new
-      puts "I HAVE BEEN CREATED~!1"
     end
 
     def clear_cart

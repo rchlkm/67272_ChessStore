@@ -16,7 +16,7 @@ class Item < ActiveRecord::Base
   scope :for_category, ->(category) { where(category: category) }
   scope :for_color,    ->(color) { where("color like ?", "%#{color.downcase}%") }
   scope :need_reorder, ->{ where("reorder_level >= inventory_level") }
-  
+
   # Validations
   validates :name, presence: true, uniqueness: { case_sensitive: false }
   validates_numericality_of :weight, greater_than: 0
@@ -32,7 +32,7 @@ class Item < ActiveRecord::Base
 
   # Other methods
   attr_reader :destroyable
-  
+
   def current_price
     curr = self.item_prices.wholesale.current.first
     if curr.nil?
