@@ -36,7 +36,12 @@ class UsersController < ApplicationController
   def update
     if @user.update_attributes(user_params)
       flash[:notice] = "#{@user.proper_name} is updated."
-      redirect_to @user
+      
+      if !@user.role?(:admin)
+        redirect_to user_path(@user)
+      else
+        redirect_to @user
+      end
     else
       render :action => 'edit'
     end

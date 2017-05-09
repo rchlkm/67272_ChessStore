@@ -1,12 +1,17 @@
 <div class="row">
 	<%# render :partial => "partials/page_header" %>
   <div class="col s12">
-    <%= render :partial => "user_details" %>
+    <%= render :partial => "order_history" %>
   </div>
 
   <div class="col s12">
-    <%= render :partial => "order_history" %>
+    <%= render :partial => "user_details" %>
   </div>
+
+ 
+  <div class="btn btn-black">
+	  <%= link_to 'Edit User', edit_user_path %>
+</div>
 
 </div>
 
