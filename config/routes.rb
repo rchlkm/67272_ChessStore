@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   resources :users
   resources :orders
   resources :order_items
-  # resources :schools
+  resources :schools
   resources :sessions
 
   # Authentication routes
@@ -38,8 +38,7 @@ Rails.application.routes.draw do
   # get 'show_cart' => 'carts#show_cart', as: :show_cart
   get 'cart' => 'carts#show', as: :cart
   get 'checkout' => 'orders#new', as: :checkout
-  get 'new_school' => 'schools#new', as: :create_new_school
-  
+    
   # Set the root url (default route)
   root :to => 'home#home'
 

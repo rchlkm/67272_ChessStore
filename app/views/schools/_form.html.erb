@@ -1,0 +1,75 @@
+<div class="row">
+<div class="col s8">
+<%= form_for(@school) do |f| %>
+  <% if @school.errors.any? %>
+    <div id="error_explanation">
+      <div class='card-panel red-text red lighten-5'>
+          <h5><%= pluralize(@school.errors.count, "error") %> prohibited this item from being saved:</h5>
+   
+        <ul>
+        <% @school.errors.full_messages.each do |msg| %>
+          <li><i><%= msg %></i></li>
+        <% end %>
+        </ul>
+      </div>
+    </div>
+  <% end %>
+
+  <div class="input-field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+
+  <div class="input-field">
+    <%= f.label :street_1 %><br />
+    <%= f.text_field :street_1 %>
+  </div>
+  
+  <div class="input-field">
+    <%= f.label :street_2 %><br />
+    <%= f.text_field :street_2 %>
+  </div>
+
+  <div class="input-field">
+    <%= f.label :city %><br />
+    <%= f.text_field :city %>
+  </div>
+
+  <div class="input-field">
+    <%= f.label :state %><br />
+    <%= f.collection_select :state, School::STATES_LIST, :last, :first %>
+  </div>
+
+  <div class="input-field">
+    <%= f.label :zip %><br />
+    <%= f.text_field :zip %>
+  </div>
+
+  <div class="input-field">
+    <%= f.label :min_grade %><br />
+    <%= f.number_field :min_grade %>
+  </div>
+
+  <div class="input-field">
+    <%= f.label :max_grade %><br />
+    <%= f.number_field :max_grade %>
+  </div>
+
+
+  <%# if !@user.new_record? %>
+    <div class="input-field">
+      <%= f.label :active %><br />
+      <%= f.collection_radio_buttons :active, [[true, 'Yes'] ,[false, 'No']], :first, :last%>
+    </div>
+  <%# end %>
+
+
+
+  <div class="form-actions">
+      <%= f.submit (@school.new_record? ? "Create New School" : "Update School") %>
+      <%= link_to 'Cancel', :back, :class => 'button alert radius' %>
+  </div>
+
+<% end %>
+</div>
+</div>

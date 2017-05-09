@@ -1,9 +1,18 @@
 class SchoolsController < ApplicationController
-  before_action :set_school, only: [:index, :show, :edit, :update, :destroy]
+  before_action :set_school, only: [:show, :edit, :update, :destroy]
+
+
 
   def index
   	@schools = School.active.alphabetical.to_a
   	@inactive_schools = School.inactive.alphabetical.to_a
+  end
+
+  def new
+    @school = School.new
+  end
+
+  def edit
   end
 
   def create

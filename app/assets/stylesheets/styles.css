@@ -185,4 +185,8 @@ select {
 	display: block;
 	margin-top: 20px;
 }
+
+.field_with_errors {
+	background-color: #FFEBEE;
+}
         
