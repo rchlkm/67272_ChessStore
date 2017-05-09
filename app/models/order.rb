@@ -2,6 +2,7 @@ class Order < ActiveRecord::Base
   # get module to help with some functionality
   include ChessStoreHelpers::Validations
   include ChessStoreHelpers::Shipping
+  # include ChessStoreHelpers::MultiStepForm
   require 'base64'
 
   # Relationships
@@ -15,6 +16,9 @@ class Order < ActiveRecord::Base
   attr_accessor :expiration_year
   attr_accessor :expiration_month
   attr_reader :destroyable
+
+  # attr_writer :current_step
+
 
   # Scopes
   scope :chronological, -> { order(date: :desc) }

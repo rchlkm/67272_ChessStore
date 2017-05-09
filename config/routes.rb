@@ -32,13 +32,11 @@ Rails.application.routes.draw do
   get 'add_to_cart/:id' => 'carts#add_to_cart', as: :add_to_cart
   get 'remove/:item_id' => 'carts#remove', as: :remove_from
 
-  # get '/add_item_to_cart/:item_id' => 'cart#add_item_to_cart', :as :add_to_cart
-
   
   # get 'show_cart' => 'carts#show_cart', as: :show_cart
   get 'cart' => 'carts#show', as: :cart
   get 'checkout' => 'orders#new', as: :checkout
-    
+
   # Set the root url (default route)
   root :to => 'home#home'
 

@@ -17,26 +17,6 @@ class ApplicationController < ActionController::Base
   rescue_from ActiveRecord::RecordNotFound do |exception|
     render template: 'errors/not_found'
   end
-  
-
-  # def current_order
-  #   if !session[:order_id].nil?
-  #     Order.find(session[:order_id])
-  #   else
-  #     Order.new
-  #   end
-  # end
-
-  # def current_cart
-  #   if session[:cart_id]
-  #     @current_cart ||= Cart.find(session[:cart_id])
-  #   end
-  #   if session[:cart_id].nil?
-  #     @current_cart = Cart.create!
-  #     session[:cart_id] = @current_cart.id
-  #   end
-  #   @current_cart
-  # end 
 
 
   private
