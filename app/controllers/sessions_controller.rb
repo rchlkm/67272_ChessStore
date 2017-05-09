@@ -5,6 +5,7 @@ class SessionsController < ApplicationController
   end
 
   def create
+    puts "ASDFGHJ", params[:email]
     user = User.find_by_email(params[:email])
     puts '========', user
     if user && user.authenticate(params[:password])
@@ -17,9 +18,10 @@ class SessionsController < ApplicationController
       redirect_to home_path, notice: "Logged in!"
       create_cart
     else
-      puts '========', "asdfghj"
+      puts "asdfghj"
       flash.now.alert = "Email or password is invalid"
-      render "new"
+      render "new", as: :login
+      # render :back
     end
   end
 
