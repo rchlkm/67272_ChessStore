@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   include ChessStoreHelpers::Cart
   before_action :set_user, only: [:show, :edit, :update, :destroy]
-  # authorize_resource
+  authorize_resource
 
   def index
     @users = User.alphabetical.paginate(:page => params[:page]).per_page(7)
@@ -16,9 +16,11 @@ class UsersController < ApplicationController
 
   def new
     @user = User.new
+    # authorize! :new, @user
   end
 
   def edit
+    authorize! :edit, @user
   end
 
   def create
@@ -34,6 +36,8 @@ class UsersController < ApplicationController
   end
 
   def update
+    authorize! :update, @user
+
     if @user.update_attributes(user_params)
       flash[:notice] = "#{@user.proper_name} is updated."
       
@@ -48,6 +52,7 @@ class UsersController < ApplicationController
   end
 
   def destroy
+    authorize! :destroy, @user
     @user.destroy
     flash[:notice] = "Successfully removed #{@user.proper_name} from A&M."
     redirect_to users_url

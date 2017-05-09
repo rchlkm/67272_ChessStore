@@ -71,7 +71,7 @@
 
   <div class="form-actions">
       <%= f.submit (@user.new_record? ? "Sign up" : "Update") %>
-      <%= link_to 'Cancel',users_path, :class => 'button alert radius' %>
+      <%= link_to 'Cancel',user_path(@user), :class => 'button alert radius' %>
   </div>
 
 <% end %>

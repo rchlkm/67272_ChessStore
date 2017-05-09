@@ -11,6 +11,7 @@ class ApplicationController < ActionController::Base
   rescue_from CanCan::AccessDenied do |exception|
     flash[:error] = "You are not authorized to take this action.  Go away or I shall taunt you a second time."
     redirect_to home_path
+    # redirect_to :back
   end
   
   # handle missing pages the BSG way...

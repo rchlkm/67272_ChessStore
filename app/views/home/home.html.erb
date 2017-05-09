@@ -1,6 +1,6 @@
 <% if logged_in? %>
 	<% if current_user.role?(:admin) %>
-		<%= render :partial => 'personal_home' %>
+		<%= render :partial => 'dashboard_home' %>
 
 	<% elsif current_user.role?(:manager) %>
 		<%= render :partial => 'reorder_list' %>

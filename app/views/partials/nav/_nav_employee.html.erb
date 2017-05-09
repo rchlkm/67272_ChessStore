@@ -8,8 +8,9 @@
         </div>
 	    
 
-	      <div class="right">
+	      <div class="right login">
         	   <li><a class="dropdown-button" href="#!" data-activates="dropdown1">Hello, Rachel!<i class="material-icons right">arrow_drop_down</i></a></li>
+        	   <li><%= link_to 'Logout', logout_path %></li>
 
 	      </div>
 <!-- 
@@ -24,8 +25,8 @@
     <div class="nav-content grey lighten-4 black-text">
     	<div class="container">
 	      <ul class="tabs tabs-transparent">
-	        <li class="tab"><a href="#test1">Test 1</a></li>
-	        <li class="tab"><a class="active" href="#test2">Test 2</a></li>
+	        <li class="tab"><li><%= link_to "Items", items_path %></li></li>
+	        <li class="tab"><%= link_to "Reorder aItems", items_path %></li>
 	        <li class="tab disabled"><a href="#test3">Disabled Tab</a></li>
 	        <li class="tab"><a href="#test4">Test 4</a></li>
 	      </ul>

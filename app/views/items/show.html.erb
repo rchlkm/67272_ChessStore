@@ -2,6 +2,8 @@
   <div class="col s12">
     <%= render :partial => "item_details" %>
 
+    <%# if !current_user.role?(:) %>
+
     <div class="btn btn-black">
       <%= link_to 'Add to Cart', add_to_cart_path(@item.id) %>
     </div>

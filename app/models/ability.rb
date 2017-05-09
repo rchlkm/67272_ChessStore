@@ -7,36 +7,40 @@ class Ability
       user ||= User.new # guest user (not logged in)
       if user.role? :admin
         can :manage, :all
-      else
-        can :read, :all
-      end
+      # else
+      #   can :read, :all
+      # end
       
       # elsif user.role? :manager
 
       # elsif user.role? :shipper
 
-      # elsif user.role? :customer
-      #   # read information on items
-      #   can :read, Item  do |this_item|  
-      #     my_projects = user.projects.map(&:id)
-      #     my_projects.include? this_project.id 
-      #   end   
+      elsif user.role? :customer
+        puts "=====", "CUSTOMER"
+        # read information on items
+        can :index, Item
 
-      #   # read own profile
-      #   can :show, User do |u|  
-      #     u.id == user.id
-      #   end
+        # can :read, Item  do |this_item|  
+        #   my_projects = user.projects.map(&:id)
+        #   my_projects.include? this_project.id 
+        # end   
 
-      #  # update own profile
-      #   can :update, User do |u|  
-      #     u.id == user.id
-      #   end
+        # read own profile
+        can :read, User do |u|  
+          u.id == user.id
+        end
 
-      # else
-      #   can :read, :all
-      #   # # guests can only read domains covered (plus home pages)
-      #   # can :read, Domain
-      # end
+       # update own profile
+        can :update, User do |u|  
+          u.id == user.id
+        end
+
+      else
+        puts "=====", "ADMIN"
+        can :read, :all
+        # # guests can only read domains covered (plus home pages)
+        # can :read, Domain
+      end
 
 
 
