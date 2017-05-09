@@ -4,6 +4,7 @@ class OrdersController < ApplicationController
 
 	def show
     # @user_orders = Order.for_user(current_user.id)
+    @order_items = @order.order_items
 	end
 
 	def new

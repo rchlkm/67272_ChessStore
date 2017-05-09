@@ -1,6 +1,29 @@
 <div class="row">
 	<div class="small-7 columns">
-		Date: <%= @order.date %>
+		<p>Date: <%= @order.date %></p>
+		<p>Grand Total: <%= @order.grand_total %></p>
+		<p>Total Weight: <%= @order.total_weight %></p>
+		
+		<table class="table table-striped">
+		    <thead>
+		      <tr>
+		        <th width="250">Name</th>
+		        <th width="125">Price</th>
+		        <th width="125">Quantity</th>
+		        <th width="125">Subtotal</th>
+		      </tr>
+		    </thead>
+		    <tbody>
+		      <% @order_items.each do |oi| %>
+		        <tr>
+		        	<td><%= link_to oi.item.name, item_path(oi.item) %></td>
+		          <td><%= number_to_currency(oi.item.price_on_date(@order.date)) %></td>
+		          <td><%= oi.quantity %></td>
+		          <td><%= number_to_currency(oi.subtotal(@order.date)) %></td>
+		        </tr>
+		      <% end %>
+	    </tbody>
+  	</table>	
 	</div>
 
 </div>
