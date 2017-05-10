@@ -31,13 +31,21 @@
       <b>Active</b>: <%= @item.active ? 'Yes' : 'No' %>
     </p>
     
-    <div class="btn btn-black">
-      <% if !logged_in? %>
+  
+    <% if !logged_in? %>
+      <div class="btn btn-black">
         <%= link_to 'Add to Cart', login_path %>
-      <% elsif current_user.role?(:customer) %>
-        <%= link_to 'Add to Cart', add_to_cart_path(@item.id) %>
-      <% end %>
-    </div>
+      </div>
+    <% elsif current_user.role?(:customer) %>
+      <div class="btn btn-black">
+        <%= link_to 'Add to Cart', add_to_cart_path(@item.id) %> 
+      </div>
+    <% elsif current_user.role?(:admin) %>
+      <div class="btn btn-black">
+        <%= link_to 'Edit', edit_item_path(@item) %> 
+      </div>
+    <% end %>
+  
 
   </div>
 </div>

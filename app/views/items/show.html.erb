@@ -13,7 +13,7 @@
      </div>
   <% end %>
 
-  <% if !logged_in? or current_user.role?(:customer) %>
+  <% if logged_in? and !current_user.role?(:customer) %>
      <div class="col s6">
       <%= render :partial => "more_details" %>
     </div>
