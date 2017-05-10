@@ -61,6 +61,10 @@ nav ul a:hover {
 	height: 70px;
 }
 
+li.tabs:hover {
+	text-decoration: underline !important;
+}
+
 /* allows logo to be on the left of the nav */
 .nav-left {
 	margin-left: 130px;

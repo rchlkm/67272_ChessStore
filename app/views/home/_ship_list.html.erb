@@ -1,1 +1,22 @@
 <h5>Items to be Shipped</h5>
+
+<% unless @orders_to_ship.nil? || @orders_to_ship.empty? %>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th width="250">Name</th>
+        <th width="125">Inventory</th>
+        <th width="125">Reorder Level</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @orders_to_ship.each do |order| %>
+        <tr>
+          <td><%= link_to order.id, order_path(order) %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% else %>
+  <p>There are no items that need to be reorder at this time.</p>
+<% end %>

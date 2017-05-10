@@ -18,7 +18,7 @@ class Ability
 
       elsif user.role? :shipper
         puts "=====", "SHIPPER"
-
+        can :read, :all
         # read own profile
         can :read, User do |u|  
           u.id == user.id
