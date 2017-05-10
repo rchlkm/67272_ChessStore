@@ -1,5 +1,6 @@
 class ItemsController < ApplicationController
   before_action :set_item, only: [:show, :edit, :update, :destroy]
+  authorize_resource
 
   def index
     # get info on active items for the big three...
@@ -9,6 +10,7 @@ class ItemsController < ApplicationController
     @supplies = Item.active.for_category('supplies').alphabetical.paginate(:page => params[:page]).per_page(10)    
     # get a list of any inactive items for sidebar
     @inactive_items = Item.inactive.alphabetical.to_a
+    authorize! :index, @inactive_items
   end
 
   def show

@@ -12,19 +12,16 @@ class Ability
       #   can :read, :all
       # end
       
-      # elsif user.role? :manager
+      elsif user.role? :manager
+        puts "=====", "MANAGER"
 
       # elsif user.role? :shipper
 
       elsif user.role? :customer
         puts "=====", "CUSTOMER"
+
         # read information on items
         can :index, Item
-
-        # can :read, Item  do |this_item|  
-        #   my_projects = user.projects.map(&:id)
-        #   my_projects.include? this_project.id 
-        # end   
 
         # read own profile
         can :read, User do |u|  

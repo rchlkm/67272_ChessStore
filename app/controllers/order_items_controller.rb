@@ -1,4 +1,6 @@
 class OrderItemsController < ApplicationController
+  # authorize_resource
+  
   def create
     @order = current_order
     @order_item = @order.order_items.new(order_item_params)

@@ -10,12 +10,6 @@ class ItemPricesController < ApplicationController
   def create
     @item_price = ItemPrice.new(item_price_params)
     @item_price.start_date = Date.current
-    # if @item_price.save
-    #   @item = @item_price.item
-    #   redirect_to item_path(@item), notice: "Changed the price of #{@item.name}."
-    # else
-    #   # render action: 'new' 
-    # end
     
     respond_to do |format|
       if @item_price.save

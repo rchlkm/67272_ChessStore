@@ -1,6 +1,7 @@
 class OrdersController < ApplicationController
   include ChessStoreHelpers::Cart
 	before_action :set_order, only: [:show, :edit, :update, :destroy]
+  authorize_resource
 
 	def show
     # @user_orders = Order.for_user(current_user.id)
