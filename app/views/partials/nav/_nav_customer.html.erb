@@ -1,48 +1,47 @@
 <div class="navbar-fixed customer-nav">
   <nav class="nav-extended white">
-    <div class="nav-wrapper valign-wrapper">
       <div class="container">
-        <div class="brand-logo">
-        <%= link_to image_tag("logo.png", :alt => "A&M", :class => "css"), home_path %>
+
+        <div class="left">
+          <div class="nav-wrapper valign-wrapper white">
+            <div class="brand-logo">
+            <%= link_to image_tag("logo.png", :alt => "A&M", :class => "css"), home_path %>
+            </div>
+
+            <ul id="nav-mobile" class="nav-left hide-on-med-and-down">
+              <li><%= link_to "PIECES", pieces_path %></li>
+              <li><%= link_to "BOARDS", boards_path %></li>
+              <li><%= link_to "CLOCKS", clocks_path %></li>
+              <li><%= link_to "SUPPLIES", supplies_path %></li>
+            </ul>
+          </div>
         </div>
 
-        <ul id="nav-mobile" class="nav-left hide-on-med-and-down">
-          <li><%= link_to "PIECES", pieces_path %></li>
-          <li><%= link_to "BOARDS", boards_path %></li>
-          <li><%= link_to "CLOCKS", clocks_path %></li>
-          <li><%= link_to "SUPPLIES", supplies_path %></li>
-        </ul>
-
         <% if !logged_in? %>
-          <%= render :partial => "partials/nav/login_buttons" %>
+          <div class="valign-wapper">
+            <%= render :partial => "partials/nav/login_buttons" %>
+          </div>
         <% elsif current_user.role?(:customer) %>
-          <!-- Dropdown Structure -->
-<!--             <ul id='dropdown1' class='dropdown-content'>
-              <li><%# link_to "ACCOUNT", user_path(current_user) %></li>
+
+            <ul id="dropdown1" class="dropdown-content">
+              <li><%= link_to 'Account', user_path(current_user) %></li>
               <li class="divider"></li>
-              <li><%# link_to 'Logout', logout_path %></li>
-            </ul> -->
-    					
-          <div class="right login">
-					  <ul id="nav-mobile" class="nav-left hide-on-med-and-down">
-
-              <li><%= link_to "ACCOUNT", user_path(current_user) %></li>
               <li><%= link_to 'Logout', logout_path %></li>
+            </ul>
 
-              <!-- <li><a id="mainMenu" class="dropdown-button" href="#!" data-activates="dropdown1">Hi, <%# current_user.first_name %>!<i class="material-icons right">arrow_drop_down</i></a></li> -->
-					  	<!-- <li><%# link_to "ACCOUNT", user_path(current_user), class: "dropdown-button", :data => { :'data-attribute' => 'dropdown1' }  %></li> -->
-              <!-- <li><a class="dropdown-button" href="#!" data-activates="dropdown1">Dropdown<i class="material-icons right">arrow_drop_down</i></a></li> -->
+            <div class="right login">
+              <div class="nav-wrapper valign-wrapper white">
+                <ul class="hide-on-med-and-down">
+                  <li><a class="dropdown-button" href="#!" data-activates="dropdown1">Hello, <%= current_user.first_name %>!<i class="material-icons right">arrow_drop_down</i></a></li>
+                  <li><%= link_to "Cart", cart_path %></li>
+                </ul>
+              </div>
+           </div>
 
-              <!-- <li><%# link_to 'Logout', logout_path %></li> -->
-              <!-- <li><a class="dropdown-button" href="#!" data-activates="dropdown1">Dropdown<i class="material-icons right">arrow_drop_down</i></a></li> -->
-					  	<li><%= link_to "Cart", cart_path %></li>
-					 	</ul>
-					</div>
         <% end %>     
 
  
       </div>
-    </div>
 
   </nav>
 </div>

@@ -52,10 +52,13 @@ nav ul a:hover {
 }
 
 .navbar-fixed.employee-nav  {
-	height: 150px !important;
+	/*height: 150px !important;*/
 	overflow: auto;
 }
 
+.brand-logo {
+	height: 50px;
+}
 .brand-logo img {
 	width: 110px;
 	height: 60px;
