@@ -7,9 +7,9 @@
       <% end %>
     </ul>
 
-    <%# link_to("Change Price", new_item_price_path(this_item_id: @item.id), class: 'button tiny radius') %>
-
+    <%# link_to("Change Price", new_item_price_path(this_item_id: @item.id), class: 'button tiny radius') %><br>
     <%= link_to(new_item_price_path(this_item_id: @item.id), id: 'new_item_price_link', class: 'button tiny radius', remote: true) do %>
+    <%# link_to(new_item_price_path(item_id: @item.id), id: 'new_item_price_link', class: 'button tiny radius', remote: true) do %>
       Change Price
     <% end %>
 
