@@ -18,10 +18,8 @@
 $(document).ready(function() {
 
   $('.dropdown-button').dropdown();
-  $('.collapsible').collapsible({
-    accordion: false
+  $('.collapsible').collapsible();
 
-  });
 
 });
 

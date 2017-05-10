@@ -1,31 +1,25 @@
 <h5>Items to be Shipped</h5>
 
 <% unless @orders_to_ship.nil? || @orders_to_ship.empty? %>
-	<ul class="collapsible" data-collapsible="accordion">
-		 <% @orders_to_ship.each do |order| %>
-		 		<li>
-		      <div class="collapsible-header">
-		      	<%= link_to "#{order.id} - #{order.user.proper_name}", order_path(order) %>
-		      </div>
-		      <div class="collapsible-body">
-		      	<table class="table table-striped">
-		      		<thead>
-					      <tr>
-					        <th width="250">Name</th>
-					        <th width="125">Quantity</th>
-					      </tr>
-					    </thead>
-					    <tbody>
-					      <% order.order_items.each do |oi| %>
-					        <tr>
-					          <td><%= link_to oi.item.name, item_path(oi.item) %></td>
-					          <td><%= oi.quantity %></td>
-					        </tr>
-					      <% end %>
-					    </tbody>
-		      	</table>
-		      </div>
-		    </li>
-			<% end %>
-   </ul>
+	<table class="table table-striped highlight">
+	 <% @orders_to_ship.each do |order| %>
+	 		<thead>
+	      <tr>
+	        <th width="250">
+	        	<%= link_to "#{order.id} - #{order.user.proper_name}", order_path(order) %>	
+        	</th>
+	      </tr>
+
+	    </thead>
+	    <tbody>
+	      <% order.order_items.each do |oi| %>
+	        <tr>
+	          <td><%= link_to oi.item.name, item_path(oi.item) %></td>
+	          <td><%= oi.quantity %></td>
+	        </tr>
+	      <% end %>
+
+	    </tbody>
+		<% end %>
+	</table>
 <% end %>
