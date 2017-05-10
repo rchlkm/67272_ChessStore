@@ -18,15 +18,15 @@ class Ability
 
       elsif user.role? :shipper
         puts "=====", "SHIPPER"
-        can :read, :all
+        can :manage, :all
         # read own profile
-        can :read, User do |u|  
-          u.id == user.id
-        end
-       # update own profile
-        can :update, User do |u|  
-          u.id == user.id
-        end
+       #  can :read, User do |u|  
+       #    u.id == user.id
+       #  end
+       # # update own profile
+       #  can :update, User do |u|  
+       #    u.id == user.id
+       #  end
 
       elsif user.role? :customer
         puts "=====", "CUSTOMER"

@@ -19,22 +19,28 @@
 $(document).ready(function() {
 
   $('.dropdown-button').dropdown();
-  $('.collapsible').collapsible({
-    accordion: false, // A setting that changes the collapsible behavior to expandable instead of the default accordion style
-    onOpen: function(el) { alert('Open'); }, // Callback for Collapsible open
-    onClose: function(el) { alert('Closed'); } // Callback for Collapsible close
-  });
-    // Open
-  $('.collapsible').collapsible('open', 0);
+  $(".button-collapse").sideNav();
+	$('.collapsible').collapsible();
 
-  // Close
-  $('.collapsible').collapsible('close', 0);
-
-  // Destroy
-  $('.collapsible').collapsible('destroy');
-        
 
 });
+
+(function($) {
+		$(function() {
+
+$('.dropdown-button').dropdown({
+      inDuration: 300,
+      outDuration: 225,
+      hover: true, // Activate on hover
+      belowOrigin: true, // Displays dropdown below the button
+      alignment: 'right' // Displays dropdown with edge aligned to the left of button
+    }
+  );
+
+		}); // End Document Ready
+})(jQuery); // End of jQuery name space
+
+
 
 $('#mainMenu').on('click',function(){
  $('#dropdown1').toggle();
