@@ -6,6 +6,7 @@ class Ability
     
       user ||= User.new # guest user (not logged in)
       if user.role? :admin
+        puts "=====", "ADMIN"
         can :manage, :all
       # else
       #   can :read, :all
@@ -36,7 +37,7 @@ class Ability
         end
 
       else
-        puts "=====", "ADMIN"
+        puts "=====", "GUEST"
         can :read, :all
         # # guests can only read domains covered (plus home pages)
         # can :read, Domain

@@ -14,13 +14,6 @@
       <b>Price</b>: <%= @item.current_price.nil? ? 'N/A' : number_to_currency(@item.current_price) %>
     </p>
 
-    <p>
-      <b>Inventory Level</b>: <%= @item.inventory_level.nil? ? 'N/A' : @item.inventory_level %>
-    </p>
-
-    <p>
-      <b>Reorder Level</b>: <%= @item.reorder_level.nil? ? 'N/A' : @item.reorder_level %>
-    </p>
 
     <p>
       <b>Category</b>: <%= @item.category.capitalize %>
@@ -31,11 +24,20 @@
     </p>
 
     <p>
-      <b>Total weight</b>: <%= @item.weight.nil? ? 'N/A' : @item.weight %> lbs.
+      <b>Item Weight</b>: <%= @item.weight.nil? ? 'N/A' : @item.weight %> lbs.
     </p>
 
     <p>
       <b>Active</b>: <%= @item.active ? 'Yes' : 'No' %>
     </p>
+    
+    <div class="btn btn-black">
+      <% if !logged_in? %>
+        <%= link_to 'Add to Cart', login_path %>
+      <% elsif current_user.role?(:customer) %>
+        <%= link_to 'Add to Cart', add_to_cart_path(@item.id) %>
+      <% end %>
+    </div>
+
   </div>
 </div>
