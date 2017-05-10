@@ -1,0 +1,31 @@
+<% unless @shipped_orders.nil? || @shipped_orders.empty? %>
+  <h5>Shipped Orders</h5>
+  <table class="table table-striped">
+    <% @shipped_orders.each do |order| %>
+    <thead>
+        <tr>
+          <th colspan="4">
+            <%= link_to "#{order.id} - #{order.user.proper_name} (#{order.date.strftime("%m/%d/%y")})", order_path(order) %>  
+          </th>
+        </tr>
+
+      </thead>
+      <tbody>
+        <% order.order_items.each do |oi| %>
+          <tr>
+            <% if !oi.shipped_on.nil? %>
+              <td width="10" class="centered"><%= image_tag("check_green.gif") %></td>
+            <% else %>
+              <td width="10" class="centered"><%= link_to(image_tag("check_black.gif"), order_item_path(oi, shipped_on: Date.current), :method => :put) %></td>
+
+            <% end %>
+            <td width="300"><%= link_to oi.item.name, item_path(oi.item) %></td>
+            <td><%= oi.quantity %></td>
+            <td></td>
+          </tr>
+        <% end %>
+
+      </tbody>
+    <% end %>
+  </table>
+<% end %>

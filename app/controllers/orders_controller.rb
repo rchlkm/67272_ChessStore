@@ -3,6 +3,11 @@ class OrdersController < ApplicationController
 	before_action :set_order, only: [:show, :edit, :update, :destroy]
   authorize_resource
 
+  def index
+    @unshipped_orders = Order.not_shipped.chronological.to_a
+    @shipped_orders = Order.all.chronological.to_a - @unshipped_orders
+  end
+
 	def show
     # @user_orders = Order.for_user(current_user.id)
     @order_items = @order.order_items

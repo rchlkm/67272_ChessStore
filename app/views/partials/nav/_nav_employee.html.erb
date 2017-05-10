@@ -7,18 +7,22 @@
 		    <div class="left">
 		      <div class="brand-logo ">
 		       	 	<%= link_to image_tag("logo.png", :alt => "A&M", :class => "css"), home_path %>
-	        
+	        </div>
+
 			    	<% if current_user.role?(:shipper) %>   	 
-			        </div>
+					        <ul id="nav-mobile" class="nav-left hide-on-med-and-down">
+				              <li><%= link_to "ITEMS", items_path %></li>
+				              <li><%= link_to "SCHOOLS", schools_path %></li>
+				            </ul>
+			      <% elsif current_user.role?(:manager) %>   	 
 				        <ul id="nav-mobile" class="nav-left hide-on-med-and-down">
 			              <li><%= link_to "ITEMS", items_path %></li>
+			              <li><%= link_to "ORDERS", orders_path %></li>
 			              <li><%= link_to "SCHOOLS", schools_path %></li>
-			              <li><%# link_to "CLOCKS", clocks_path %></li>
-			              <li><%# link_to "SUPPLIES", supplies_path %></li>
 			            </ul>
-			       </div>
 			      <% end %>
-		      
+	      </div>
+
 	      <ul id="dropdown1" class="dropdown-content">
 				  <li><%= link_to 'Account', user_path(current_user) %></li>
 				  <li class="divider"></li>
