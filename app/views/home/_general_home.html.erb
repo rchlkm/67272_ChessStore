@@ -1,24 +1,18 @@
-<%# render :partial => 'partials/page_header' %>
-<br />
 <div class="row">
 	<div class="small-7 columns">
-		<p>
-			Here are some of the great chess equipment we have today...
-		</p>
-
+		
 		<table class="table table-striped">
 		    <thead>
 		      <tr>
-		        <th width="250">Name</th> 
-		        <th width="125">Inventory</th>
-		        <th width="125">Reorder Level</th>
+		        <th width="250">Name</th>
+		        <th width="125">Price</th>
 		      </tr>
 		    </thead>
 		    <tbody>
 		      <% @items.each do |item| %>
 		        <tr>
 		          <td><%= link_to item.name, item_path(item) %></td>
-		          <td><%= item.current_price %></td>
+		          <td><%= number_to_currency(item.current_price) %></td>
 		        </tr>
 		      <% end %>
 	    </tbody>

@@ -201,4 +201,15 @@ select {
 .field_with_errors {
 	background-color: #FFEBEE;
 }
+
+
+/* TABLES */
+.items-table th {
+	 height: 50px;
+	 margin-top: 15px;
+	 vertical-align: bottom;
+}
         
+.items-table td {
+	padding: 15px;
+}
