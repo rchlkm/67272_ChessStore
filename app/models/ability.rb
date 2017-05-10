@@ -8,17 +8,29 @@ class Ability
       if user.role? :admin
         puts "=====", "ADMIN"
         can :manage, :all
-      # else
-      #   can :read, :all
-      # end
+
       
       elsif user.role? :manager
         puts "=====", "MANAGER"
 
-      # elsif user.role? :shipper
+        can :manage, :all
+        can :manage, Item
+
+      elsif user.role? :shipper
+        puts "=====", "SHIPPER"
+
+        # read own profile
+        can :read, User do |u|  
+          u.id == user.id
+        end
+       # update own profile
+        can :update, User do |u|  
+          u.id == user.id
+        end
 
       elsif user.role? :customer
         puts "=====", "CUSTOMER"
+        can :manage, Item
 
         # read information on items
         can :index, Item
@@ -35,7 +47,17 @@ class Ability
 
       else
         puts "=====", "GUEST"
+
         can :read, :all
+
+        # can :read, Item
+        # can :read, Item#, :active => true
+        # can :read, Pieces
+
+        can :create, User
+
+
+        # can :read, :all
         # # guests can only read domains covered (plus home pages)
         # can :read, Domain
       end
