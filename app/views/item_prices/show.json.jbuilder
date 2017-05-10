@@ -1,0 +1,1 @@
+json.extract! @item_price, :id, :item_id, :price, :category, :start_date, :end_date
