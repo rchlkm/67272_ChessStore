@@ -1,0 +1,7 @@
+<h5><%= @school.name %></h5>
+
+<p><%= @school.street_1 %></p>
+<% if !@street_2.nil? %>
+	<p><%= @school.street_2 %></p>
+<% end %>
+<p><%= @school.city %>, <%= @school.state %> <%= @school.zip %> </p>

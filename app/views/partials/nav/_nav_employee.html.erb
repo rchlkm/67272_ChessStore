@@ -8,6 +8,12 @@
 		      <div class="brand-logo ">
 		       	 	<%= link_to image_tag("logo.png", :alt => "A&M", :class => "css"), home_path %>
 	        </div>
+		        <ul id="nav-mobile" class="nav-left hide-on-med-and-down">
+	              <li><%= link_to "ITEMS", items_path %></li>
+	              <li><%# link_to "BOARDS", boards_path %></li>
+	              <li><%# link_to "CLOCKS", clocks_path %></li>
+	              <li><%# link_to "SUPPLIES", supplies_path %></li>
+	            </ul>
 	       </div>
 		      
 	      <ul id="dropdown1" class="dropdown-content">
@@ -29,10 +35,10 @@
     </div>
 
 
-    <!-- <div class="nav-content grey lighten-4 black-text">
+<!--     <div class="nav-content grey lighten-4 black-text">
     	<div class="container">
 	      <ul class="tabs tabs-transparent">
-	        <li class="tab"><a href="#test1">Test 1</a></li>
+	        <li class="tab"><%= link_to 'Items', items_path %></li>
 	        <li class="tab"><a class="active" href="#test2">Test 2</a></li>
 	        <li class="tab disabled"><a href="#test3">Disabled Tab</a></li>
 	        <li class="tab"><a href="#test4">Test 4</a></li>

@@ -1,15 +1,26 @@
 <div class="row">
-	<div class="small-7 columns">
-		<p>Date: <%= @order.date %></p>
-		<p>Grand Total: <%= @order.grand_total %></p>
-		<p>Total Weight: <%= @order.total_weight %></p>
+	<div class="col s8">
+
+		<% if !current_user.role?(:customer) %>
+
+		<h5><%= @order.user.proper_name %></h5>
+		<p><b>Order Date: </b><%= @order.date %></p>
+		<p><b>Order Status: </b><%= (@order.order_items.unshipped.empty? ? "Completed" : "Pending") %></p>
+
+		<p><b>School: </b><%= link_to @order.school.name, school_path(@order.school) %></p>
+
+
+
+		<% end %>
 		
-		<table class="table table-striped">
+		<table class="items-table table table-striped">
 		    <thead>
 		      <tr>
-		        <th width="250">Name</th>
-		        <th width="125">Price</th>
-		        <th width="125">Quantity</th>
+		        <th width="150px">Name</th>
+		        <th width="5px">Price</th>
+		        <th width="5"></th>
+		        <th width="5">Quantity</th>
+		        <th width="5"></th>
 		        <th width="125">Subtotal</th>
 		      </tr>
 		    </thead>
@@ -18,10 +29,41 @@
 		        <tr>
 		        	<td><%= link_to oi.item.name, item_path(oi.item) %></td>
 		          <td><%= number_to_currency(oi.item.price_on_date(@order.date)) %></td>
+		          <td>x</td>
 		          <td><%= oi.quantity %></td>
+		          <td>=</td>
 		          <td><%= number_to_currency(oi.subtotal(@order.date)) %></td>
 		        </tr>
 		      <% end %>
+
+
+		      	<tr>
+		      		<td colspan="4"></td>
+		      		<td><b>Subtotal:</b></td>
+		      		<td><%= number_to_currency(@order.grand_total) %></td>
+		      	</tr>
+
+		      	<tr>
+		      		<td colspan="4"></td>
+		      		<td><b>Total Weight:</b></td>
+		      		<td><%= @order.total_weight %> lbs</td>
+		      	</tr>
+
+
+		      	<tr>
+		      		<td colspan="4"></td>
+		      		<td><b>Shipping Costs:</b></td>
+		      		<td><%= number_to_currency(@order.shipping_costs) %></td>
+		      	</tr>
+
+
+		      	<tr>
+		      		<td colspan="4"></td>
+		      		<td><b>Grand Total:</b></td>
+		      		<td><%= number_to_currency(@order.grand_total) %></td>
+		      	</tr>
+		      	
+		      <tr>
 	    </tbody>
   	</table>	
 	</div>

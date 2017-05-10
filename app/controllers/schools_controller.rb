@@ -8,6 +8,9 @@ class SchoolsController < ApplicationController
   	@inactive_schools = School.inactive.alphabetical.to_a
   end
 
+  def show
+  end
+
   def new
     @school = School.new
   end
