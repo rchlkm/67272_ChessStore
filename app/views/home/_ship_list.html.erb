@@ -4,7 +4,9 @@
 	<ul class="collapsible" data-collapsible="accordion">
 		 <% @orders_to_ship.each do |order| %>
 		 		<li>
-		      <div class="collapsible-header"><%= link_to order.id, order_path(order) %></div>
+		      <div class="collapsible-header">
+		      	<%= link_to "#{order.id} - #{order.user.proper_name}", order_path(order) %>
+		      </div>
 		      <div class="collapsible-body">
 		      	<table class="table table-striped">
 		      		<thead>
