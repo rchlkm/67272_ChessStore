@@ -17,6 +17,19 @@ class SchoolsController < ApplicationController
 
   def create
     @school = School.new(school_params)
+    # respond_to do |format|
+    #   if @school.save
+    #     # @item = @item_price.item
+        
+    #     format.html { redirect_to checkout_path, notice: 'School was successfully created.' }
+    #     format.json { render action: 'show', status: :created, location: @school }
+    #     format.js
+    #   else
+    #     # render action: 'new'
+    #     format.html { render action: 'new' }
+    #     format.json { render json: @school.errors, status: :unprocessable_entity }
+    #   end
+    # end
     if @school.save
       redirect_to :back
       # redirect_to item_path(@item), notice: "Successfully created #{@item.name}."

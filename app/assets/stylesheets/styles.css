@@ -91,6 +91,11 @@ li.tabs:hover {
 	color: white !important;
 	/*margin-left: 10px;*/
 }
+.btn-black a {
+	color: white !important;
+}
+
+
 /*.page-header*/ h1{
 	font-size: 2em;
 	/*margin-bottom: 0em;*/

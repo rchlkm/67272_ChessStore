@@ -1,19 +1,20 @@
 <div class="row">
 	<%# render :partial => "partials/page_header" %>
-  <div class="col s12">
-    <%= render :partial => "order_history" %>
-  </div>
-
+	<% if current_user.role == 'customer'	%>
+	  <div class="col s12">
+	    <%= render :partial => "order_history" %>
+	  </div>
+	 <% end %>
   <div class="col s12">
     <%= render :partial => "user_details" %>
   </div>
 
  
   <div class="btn btn-black">
-	  <%= link_to 'Edit User', edit_user_path %>
+	  <%= link_to 'Change', edit_user_path %>
 </div>
 
 </div>
 
 <!-- Add buttons to list all, edit project or destroy object -->
-<%= render partial: "partials/object_options", locals: {model_name: "user", object: @user}  %>
+<%# render partial: "partials/object_options", locals: {model_name: "user", object: @user}  %>

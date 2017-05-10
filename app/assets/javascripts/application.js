@@ -15,39 +15,33 @@
 //= require materialize
 //= require_tree
 
-
 $(document).ready(function() {
 
   $('.dropdown-button').dropdown();
-  $(".button-collapse").sideNav();
-	$('.collapsible').collapsible();
+  $('.collapsible').collapsible({
+    accordion: false
 
+  });
 
 });
+
+
 
 (function($) {
 		$(function() {
 
-$('.dropdown-button').dropdown({
-      inDuration: 300,
-      outDuration: 225,
-      hover: true, // Activate on hover
-      belowOrigin: true, // Displays dropdown below the button
-      alignment: 'right' // Displays dropdown with edge aligned to the left of button
-    }
-  );
+	$('.dropdown-button').dropdown({
+	      inDuration: 300,
+	      outDuration: 225,
+	      hover: true, // Activate on hover
+	      belowOrigin: true, // Displays dropdown below the button
+	      alignment: 'right' // Displays dropdown with edge aligned to the left of button
+	    }
+	  );
 
 		}); // End Document Ready
 })(jQuery); // End of jQuery name space
 
 
 
-$('#mainMenu').on('click',function(){
- $('#dropdown1').toggle();
-});
-
-
-
-
-  
 

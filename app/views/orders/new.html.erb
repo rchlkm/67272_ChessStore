@@ -21,9 +21,13 @@
     <%= f.select :school_id, School.active.alphabetical.collect {|s| [s.name, s.id]},include_blank: true, :prompt => "Select ..." %>
     <%# f.collection_select :role, School.active.alphabetical, :last, :first %>
   </div>
-  <div class="btn btn-black">
+  <div id="new_school" class="btn btn-black">
     <%= link_to 'Create New School', new_school_path %>
+     <%# link_to(new_school_path, id: 'new_school_link', class: 'button tiny radius', remote: true) do %>
+      <!-- Create New School -->
+    <%# end %>
   </div>
+
 
 
   <br><hr><br>

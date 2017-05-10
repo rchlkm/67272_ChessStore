@@ -5,62 +5,58 @@ class Ability
     # Define abilities for the passed in user here. For example:
     
       user ||= User.new # guest user (not logged in)
-      if user.role? :admin
-        puts "=====", "ADMIN"
-        can :manage, :all
+      can :manage, :all
+
+      # if user.role? :admin
+      #   puts "=====", "ADMIN"
+      #   can :manage, :all
 
       
-      elsif user.role? :manager
-        puts "=====", "MANAGER"
+      # elsif user.role? :manager
+      #   puts "=====", "MANAGER"
 
-        can :manage, :all
-        can :manage, Item
+      #   can :manage, :all
+      #   can :manage, Item
 
-      elsif user.role? :shipper
-        puts "=====", "SHIPPER"
-        can :manage, :all
-        # read own profile
-       #  can :read, User do |u|  
-       #    u.id == user.id
-       #  end
-       # # update own profile
-       #  can :update, User do |u|  
-       #    u.id == user.id
-       #  end
+      # elsif user.role? :shipper
+      #   puts "=====", "SHIPPER"
+      #   can :manage, :all
+      #   # read own profile
+      #  #  can :read, User do |u|  
+      #  #    u.id == user.id
+      #  #  end
+      #  # # update own profile
+      #  #  can :update, User do |u|  
+      #  #    u.id == user.id
+      #  #  end
 
-      elsif user.role? :customer
-        puts "=====", "CUSTOMER"
-        can :manage, Item
+      # elsif user.role? :customer
+      #   puts "=====", "CUSTOMER"
+      #   can :manage, Item
 
-        # read information on items
-        can :index, Item
+      #   # read information on items
+      #   can :index, Item
 
-        # read own profile
-        can :read, User do |u|  
-          u.id == user.id
-        end
+      #   # read own profile
+      #   can :read, User do |u|  
+      #     u.id == user.id
+      #   end
 
-       # update own profile
-        can :update, User do |u|  
-          u.id == user.id
-        end
+      #  # update own profile
+      #   can :update, User do |u|  
+      #     u.id == user.id
+      #   end
 
-      else
-        puts "=====", "GUEST"
-
-        can :read, :all
-
-        # can :read, Item
-        # can :read, Item#, :active => true
-        # can :read, Pieces
-
-        can :create, User
+      #   can :create, [User, School]
 
 
-        # can :read, :all
-        # # guests can only read domains covered (plus home pages)
-        # can :read, Domain
-      end
+      # else
+      #   puts "=====", "GUEST"
+      #   can :read, Item
+
+      #   can :create, [User, School]
+      #   # can :manage, :all
+      # end
 
 
 

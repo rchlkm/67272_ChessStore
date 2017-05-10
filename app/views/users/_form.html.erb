@@ -26,13 +26,14 @@
   </div>
 
   <div class="input-field">
-    <%= f.label :email, "Email Address" %><br />
-    <%= f.text_field :email %>
-  </div>
-
-  <div class="input-field">
     <%= f.label :username %><br />
     <%= f.text_field :username %>
+  </div>
+
+
+  <div class="input-field">
+    <%= f.label :email, "Email Address" %><br />
+    <%= f.text_field :email %>
   </div>
 
   <div class="input-field">
@@ -50,28 +51,29 @@
     <%= f.text_field :password_confirmation %>
   </div>
 
+  <% if !logged_in? %>
+    <%= f.hidden_field :role, :value => "customer" %>
+  <% else %>
   <div class="input-field">
     <%= f.label :role %><br />
     <%# f.text_field :role, :value => "Customer" %>
     <%# f.select :role, User::ROLES, :prompt => "Select ..." %>
     <%= f.collection_select :role, User::ROLES, :last, :first %>
-
-    <%# f.hidden_field :role, :value => "customer" %>
-
   </div>
+  <% end %>
 
-  <%# if !@user.new_record? %>
+  <% if !@user.new_record? %>
     <div class="input-field">
       <%= f.label :active %><br />
       <%= f.collection_radio_buttons :active, [[true, 'Yes'] ,[false, 'No']], :first, :last%>
     </div>
-  <%# end %>
+  <% end %>
 
 
 
   <div class="form-actions">
       <%= f.submit (@user.new_record? ? "Sign up" : "Update") %>
-      <%= link_to 'Cancel',user_path(@user), :class => 'button alert radius' %>
+      <%# link_to 'Cancel',user_path(@user), :class => 'button alert radius' %>
   </div>
 
 <% end %>
