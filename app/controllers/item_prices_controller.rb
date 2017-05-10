@@ -19,8 +19,8 @@ class ItemPricesController < ApplicationController
         format.json { render action: 'show', status: :created, location: @item_price }
         format.js
       else
-        render action: 'new'
-        # format.html { render action: 'new' }
+        # render action: 'new'
+        format.html { render action: 'new' }
         format.json { render json: @item_price.errors, status: :unprocessable_entity }
       end
     end
