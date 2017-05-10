@@ -24,6 +24,15 @@ $(document).ready(function() {
     onOpen: function(el) { alert('Open'); }, // Callback for Collapsible open
     onClose: function(el) { alert('Closed'); } // Callback for Collapsible close
   });
+    // Open
+  $('.collapsible').collapsible('open', 0);
+
+  // Close
+  $('.collapsible').collapsible('close', 0);
+
+  // Destroy
+  $('.collapsible').collapsible('destroy');
+        
 
 });
 
