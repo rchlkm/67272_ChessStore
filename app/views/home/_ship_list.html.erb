@@ -3,7 +3,7 @@
 <% unless @orders_to_ship.nil? || @orders_to_ship.empty? %>
 	<table class="items-table table striped">
 	 <% @orders_to_ship.each do |order| %>
-	 		<thead>
+ 		<thead>
 	      <tr>
 	        <th colspan="4">
 	        	<%= link_to "#{order.id} - #{order.user.proper_name} (#{order.date.strftime("%m/%d/%y")})", order_path(order) %>	
